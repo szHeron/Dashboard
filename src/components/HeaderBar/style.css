@@ -1,0 +1,19 @@
+.headerbar{
+    height: 50px;
+    width: 100%;
+    background-color: var(--main-bg-color);
+}
+
+.headerbarWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.leftSide{
+    color: var(--main-graph-color);
+    font-size: 1.4em;
+    font-weight: bold;
+}
