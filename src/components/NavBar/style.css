@@ -1,3 +1,13 @@
 .navbar{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-top: 35px;
+    width: 200px;
+    height: calc(100vh - 85px);
     background-color: var(--slidebar-bg-color);
+}
+
+.linkBars{
+    margin-bottom: 3rem;
 }
