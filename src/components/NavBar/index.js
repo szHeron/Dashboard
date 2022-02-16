@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { AiOutlineDashboard, AiOutlineUser, AiOutlineDollar } from "react-icons/ai";
+import { AiOutlineDashboard, AiOutlineUser, AiOutlineDollar, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsListCheck } from "react-icons/bs";
-import './style.css'
+import './style.scss'
 
 export default function NavBar() {
   const links = [
@@ -28,22 +27,24 @@ export default function NavBar() {
     },
     {
       text: "Produtos",
-      icon: AiOutlineDashboard,
+      icon: AiOutlineShoppingCart,
       active: false
     },
   ]
   return (
     <div className='navbar'>
-      {links.map((link)=>{
-        return(
-          <ul className={'linkBars',link.active&&'actived'}>
-            <a href="#">
-              <link.icon/>
-              {link.text}
-            </a>
-          </ul>
-        )
-      })}
+      <ul className={'linkBars'}>
+        {links.map((link)=>{
+          return(
+            <li className={link.active?'Active':''}>
+              <a href="#">
+                <link.icon/>
+                {link.text}
+              </a>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   )
 }

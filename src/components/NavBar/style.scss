@@ -1,0 +1,39 @@
+@import '../../styles/global';
+
+.navbar{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-top: 25px;
+    width: 200px;
+    height: calc(100vh - 75px);
+    background-color: $slidebar-bg-color;
+}
+
+.linkBars{
+    li{
+        border-right: 0.3rem solid transparent;
+        margin: 1rem 0;
+        list-style-type: none;
+        a{
+            text-decoration: none;
+            color: $main-text-color;
+            font-size: 1.1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        transition: 0.3s ease-in-out;
+        &:hover{
+            border-right-color: $main-color;
+            a{
+                color: $main-color;
+            }
+        }
+    }
+    .Active {
+        border-right: 0.3rem solid $main-color;
+        a{
+            color: $main-color;
+        }
+    }
+}

@@ -1,7 +1,9 @@
+@import '../../styles/global';
+
 .headerbar{
     height: 50px;
     width: 100%;
-    background-color: var(--main-bg-color);
+    background-color: $main-bg-color;
 }
 
 .headerbarWrapper{
@@ -13,7 +15,7 @@
 }
 
 .leftSide{
-    color: var(--main-graph-color);
+    color: $main-color;
     font-size: 1.4em;
     font-weight: bold;
 }
