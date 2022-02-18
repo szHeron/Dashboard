@@ -1,19 +1,15 @@
+@import '../../styles/global';
+
 .dashboard{
-    margin-left: 15rem;
-    padding: 2rem;
-    height: 100%;
-    color: #fff;
-    .wrapper{
-        margin-top: 3rem;
-        height: 100%;
-        .one{
-            margin: 2rem 0;
-        }
-        .two{
-            height: 70%;
-            display: grid;
-            grid-template-columns: 0.6fr 1fr;
-            gap: 1rem;
-        }
+    display: flex;
+    flex-direction: column;
+    background-color: $main-bg-color;
+    height: 92vh;
+    
+    .metrics{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
     }
 }

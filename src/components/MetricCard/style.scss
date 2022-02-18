@@ -1,0 +1,19 @@
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 225px;
+    height: 100px;
+    background-color: #2e2e2e;
+    color: #fff;
+    border-radius: 25px;
+
+    .info{
+        margin-left: 25px;
+        padding-bottom: 20px;
+        p{
+            font-weight: 200;
+            color: #dcdcdc;
+        }
+    }
+}

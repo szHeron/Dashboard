@@ -1,13 +1,16 @@
-import { BrowserRouter } from 'react-router-dom';
+import MyRoutes from './Routes';
+import SideBar from './components/SideBar';
 import HeaderBar from './components/HeaderBar';
-import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <BrowserRouter>
-      <HeaderBar/>
-      <NavBar/>
-    </BrowserRouter>
+    <div style={{display: 'flex'}}>
+      <SideBar/>
+      <div style={{width: '100%'}}>
+        <HeaderBar/>
+        <MyRoutes/>
+      </div>
+    </div>
   );
 }
 

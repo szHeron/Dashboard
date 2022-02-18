@@ -1,13 +1,22 @@
 @import '../../styles/global';
 
-.navbar{
+.sidebar{
     display: flex;
     flex-direction: column;
     text-align: start;
     padding-top: 25px;
-    width: 200px;
-    height: calc(100vh - 75px);
+    width: 250px;
+    height: 96vh;
     background-color: $slidebar-bg-color;
+}
+
+.brand{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: $main-color;
+    font-size: 1.3em;
+    font-weight: bold;
 }
 
 .linkBars{

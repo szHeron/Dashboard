@@ -32,11 +32,14 @@ export default function NavBar() {
     },
   ]
   return (
-    <div className='navbar'>
+    <div className='sidebar'>
+      <div className='brand'>
+        ShopDash
+      </div>
       <ul className={'linkBars'}>
         {links.map((link)=>{
           return(
-            <li className={link.active?'Active':''}>
+            <li key={link.text} className={link.active?'Active':''}>
               <a href="#">
                 <link.icon/>
                 {link.text}
