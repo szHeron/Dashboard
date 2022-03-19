@@ -3,7 +3,8 @@
 .headerbar{
     height: 50px;
     width: 100%;
-    background-color: $main-bg-color;
+    background: #8e2de2;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
 }
 
 .headerbarWrapper{

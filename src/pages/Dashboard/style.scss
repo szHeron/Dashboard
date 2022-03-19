@@ -3,13 +3,32 @@
 .dashboard{
     display: flex;
     flex-direction: column;
-    background-color: $main-bg-color;
     height: 92vh;
-    
+    background: $main-bg-color;
+
+    .wrapper{
+        position: absolute;
+        background: linear-gradient(to right, #8e2de2 0%, #4a00e0 100%);
+        width: 84%;
+        height: 40vh;
+        z-index: 0;
+    }
+
     .metrics{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
+        padding: 20px 0 40px 0;
+        background: transparent;
+        z-index: 1;
+    }
+
+    .charts{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 30px 10px 0 10px;
+        z-index: 1;
     }
 }
