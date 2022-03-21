@@ -1,4 +1,5 @@
 @import '../../styles/global';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 
 .headerbar{
     height: 50px;
@@ -15,8 +16,18 @@
     padding: 0 20px;
 }
 
-.leftSide{
-    color: $main-color;
-    font-size: 1.4em;
-    font-weight: bold;
+.outskirts{
+    display: flex;
+    color: #fff;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    
+    img{
+        margin-right: 10px;
+        height: 32px;
+        width: 32px;
+        background-color: #fff;
+        border-radius: 100%;
+    }
 }

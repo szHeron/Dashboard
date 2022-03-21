@@ -4,12 +4,13 @@
     display: flex;
     flex-direction: column;
     height: 92vh;
+    width: 100%;
     background: $main-bg-color;
 
     .wrapper{
         position: absolute;
         background: linear-gradient(to right, #8e2de2 0%, #4a00e0 100%);
-        width: 84%;
+        width: 84vw;
         height: 40vh;
         z-index: 0;
     }
