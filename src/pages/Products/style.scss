@@ -15,21 +15,14 @@
         z-index: 0;
     }
 
-    .metrics{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        padding: 20px 0 40px 0;
-        background: transparent;
+    .searchbar{
+        background-color: #fff;
+        width: 80%; 
+        height: 6%;
+        border: none;
+        border-radius: 20px;
+        margin-top: 35px;
         z-index: 1;
-    }
-
-    .charts{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 30px 10px 0 10px;
-        z-index: 1;
+        padding: 10px;
     }
 }
