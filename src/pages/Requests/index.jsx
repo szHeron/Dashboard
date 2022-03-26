@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpeedDial, SpeedDialIcon } from '@mui/material';
 import Table from '../../components/CustomTable';
 import './style.scss'
 
@@ -51,6 +52,11 @@ export default function Requests() {
     <div className="container">
       <div className="wrapper"/>
       <Table data={data} rows={['ID','Produto','Cliente','Quantidade','Valor']}/>
+      <SpeedDial
+        ariaLabel="Adicionar um novo produto"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+      />
     </div>
   )
 }

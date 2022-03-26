@@ -9,7 +9,8 @@ export default function Transactions() {
       name: 'Arroz',
       client: 'Andre',
       amount: 3,
-      value: 100
+      value: 100,
+      date: new Date()
     },
     {
       id: 1,

@@ -1,27 +1,40 @@
-import { Table, TableContainer, TablePagination, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { Button, Table, TableContainer, TablePagination, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 export default function CustomTable({data, rows}){
+    const RenderDate = (obj)=>{
+        return `${obj.getHours()}:${obj.getMinutes()} - ${obj.getDate()}/${obj.getMonth()+1}/${obj.getFullYear()}`
+    } 
     return(
-        <TableContainer sx={{zIndex: 1, maxWidth: 1000, marginTop: 10}} component={Paper}>
+        <TableContainer sx={{zIndex: 1, maxWidth: 1000, marginTop: 7}} component={Paper}>
             <Table sx={{ minWidth: 700, backgroundColor: "#2e2e2e"}}>
                 <TableHead>
                     <TableRow>
                         {rows.map((row, index) => (
-                            index === 0? <TableCell sx={{color:"#fff"}}>{row}</TableCell>:<TableCell sx={{color:"#fff"}} align="right">{row}</TableCell>
+                            index === 0? <TableCell key={row} sx={{color:"#fff"}}>{row}</TableCell>:<TableCell key={row} align="right" sx={{color:"#fff"}}>{row}</TableCell>
                         ))}
+                        <TableCell align="right" sx={{color:"#fff", width: 150}}>Ações</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data.map((request) => (
-                    <TableRow key={request.id}>
-                        <TableCell sx={{color:"#fff"}} component="th" scope="row">
-                            {request.id}
-                        </TableCell>
-                        <TableCell sx={{color:"#fff"}} align="right">{request.name}</TableCell>
-                        <TableCell sx={{color:"#fff"}} align="right">{request.client}</TableCell>
-                        <TableCell sx={{color:"#fff"}} align="right">{request.amount}</TableCell>
-                        <TableCell sx={{color:"#fff"}} align="right">{request.value}</TableCell>
-                    </TableRow>
+                        <TableRow key={request.id}>
+                            {Object.keys(request).map((item, i) => {
+                                if(i === 0){
+                                    return <TableCell key={i} sx={{color:"#fff"}}>{request[item]}</TableCell>  
+                                }else{
+                                    if(item === 'date'){
+                                        return <TableCell align="right" key={i} sx={{color:"#fff"}}>{RenderDate(request[item])}</TableCell>  
+                                    }else{
+                                        return <TableCell align="right" key={i} sx={{color:"#fff"}}>{request[item]}</TableCell>  
+                                    }
+                                }
+                            })}
+                            <TableCell align="right" sx={{color:"#fff", width: 150}}>
+                                <Button><AiFillEdit size={20} color="#A220FF"/></Button>
+                                <Button color="error"><AiFillDelete size={20} color="#e61919"/></Button>
+                            </TableCell>
+                        </TableRow>
                     ))}
                 </TableBody>
                 <TablePagination

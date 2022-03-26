@@ -10,7 +10,7 @@ export default function MyRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route exact path="/dashboard" element={<Dashboard/>}/>
         <Route path="/pedidos" element={<Requests/>}/>
         <Route path="/usuarios" element={<Users/>}/>
         <Route path="/transacoes" element={<Transactions/>}/>
