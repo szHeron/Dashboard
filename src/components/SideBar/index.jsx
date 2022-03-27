@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { AiOutlineDashboard, AiOutlineUser, AiOutlineDollar, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsListCheck } from "react-icons/bs";
 import './style.scss'
@@ -12,28 +12,22 @@ export default function NavBar() {
       ref: "/dashboard"
     },
     {
-      text: "Pedidos",
-      icon: BsListCheck,
-      active: window.location.href.includes("/pedidos") === true?true:false,
-      ref: "/pedidos"
-    },
-    {
       text: "Usuarios",
       icon: AiOutlineUser,
-      active: window.location.href.includes("/usuarios") === true?true:false,
-      ref: "/usuarios"
+      active: window.location.href.includes("/users") === true?true:false,
+      ref: "/users"
     },
     {
       text: "Transações",
       icon: AiOutlineDollar,
-      active: window.location.href.includes("/transacoes") === true?true:false,
-      ref: "/transacoes"
+      active: window.location.href.includes("/transactions") === true?true:false,
+      ref: "/transactions"
     },
     {
       text: "Produtos",
       icon: AiOutlineShoppingCart,
-      active: window.location.href.includes("/produtos") === true?true:false,
-      ref: "/produtos"
+      active: window.location.href.includes("/products") === true?true:false,
+      ref: "/products"
     },
   ]
 

@@ -1,54 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Skeleton, SpeedDial, SpeedDialIcon } from '@mui/material';
+import API from '../../service/API';
+import Table from '../../components/CustomTable';
 import './style.scss'
 
 export default function Products() {
-  const data = [
-    {
-      id: 0,
-      name: 'Arroz',
-      amount: 3,
-      value: 100,
-      img: "https://img.itdg.com.br/tdg/images/recipes/000/000/770/323683/323683_original.jpg?w=1200"
-    },
-    {
-      id: 1,
-      name: 'Notebook',
-      amount: 3,
-      value: 100,
-      img: "https://www.lg.com/br/images/computadores/md05940896/gallery/medium01.jpg"
-    },
-    {
-      id: 2,
-      name: 'Mouse',
-      amount: 3,
-      value: 100,
-      img: "https://m.media-amazon.com/images/I/61UxfXTUyvL._AC_SL1500_.jpg"
-    },
-    {
-      id: 3,
-      name: 'Teclado',
-      amount: 3,
-      value: 100,
-      img: "https://images.kabum.com.br/produtos/fotos/150980/teclado-mecanico-gamer-hyperx-alloy-origins-60-rgb-usb-hyperx-red-switch-design-compacto-anti-ghosting-abnt2-preto-hkbo1s-rb-usg_1616771985_gg.jpg"
-    },
-    {
-      id: 4,
-      name: 'PC',
-      amount: 3,
-      value: 100,
-      img: "https://m.media-amazon.com/images/I/51-aQuVSj-L._AC_SY355_.jpg"
-    },
-    {
-      id: 5,
-      name: 'Xiaomi',
-      amount: 3,
-      value: 100,
-      img: "https://d1r6yjixh9u0er.cloudfront.net/Custom/Content/Products/26/97/2697_smartphone-xiaomi-mi-11-5g-tela-681-8gb256gb-c00318_m9_637551146435378534.png"
-    },
-  ]
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    API.get('/products')
+    .then(function (response) {
+      setData(response.data);
+      setTimeout(function(){
+        setLoading(false);
+      },2000);
+    })
+    .catch(e=>{
+      console.log(e)
+    });
+  },[]);
+
   return (
     <div className="container">
       <div className="wrapper"/>
+      {
+        loading?(
+          <Skeleton sx={{zIndex: 1, bgcolor: '#2e2e2e', marginTop: 3}} variant="rectangular" width={1000} height={450}/>
+        ):(
+          <Table data={data} rows={['ID', 'Nome', 'Valor', 'Quantidade']}/>
+        )
+      }
+      <SpeedDial
+        ariaLabel="Adicionar um novo produto"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+      />
     </div>
   )
 }
