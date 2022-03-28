@@ -1,9 +1,9 @@
 import React from 'react';
+import { AiOutlineDollar, AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import { MdAttachMoney } from "react-icons/md";
 import Revenue from '../../components/Revenue';
 import Sales from '../../components/Sales';
 import MetricCard from '../../components/MetricCard';
-import { AiOutlineDollar, AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
-import { MdAttachMoney } from "react-icons/md";
 import './style.scss'
 
 export default function Dashboard() {

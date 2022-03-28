@@ -1,6 +1,5 @@
 import React from 'react'
 import { AiOutlineDashboard, AiOutlineUser, AiOutlineDollar, AiOutlineShoppingCart } from "react-icons/ai";
-import { BsListCheck } from "react-icons/bs";
 import './style.scss'
 
 export default function NavBar() {

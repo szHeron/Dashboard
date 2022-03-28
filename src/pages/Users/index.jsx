@@ -28,7 +28,7 @@ export default function Users() {
         loading?(
           <Skeleton sx={{zIndex: 1, bgcolor: '#2e2e2e', marginTop: 3}} variant="rectangular" width={1000} height={450}/>
         ):(
-          <Table data={data} rows={['ID', 'Usuario', 'Nome', 'Senha', 'Email', 'Estado']}/>
+          <Table data={data} rows={['ID', 'Usuario', 'Nome', 'Senha', 'Email', 'Estado']} type="users"/>
         )
       }
       <SpeedDial

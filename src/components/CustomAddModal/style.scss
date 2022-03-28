@@ -1,0 +1,9 @@
+@import '../../styles/global';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+.container{
+    height: 50px;
+    width: 100%;
+    background: #8e2de2;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+}
