@@ -3,11 +3,9 @@ import { Box, Button, IconButton, Table, TableContainer, TablePagination, TableH
 import { AiFillEdit, AiFillDelete, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { BsArrowBarLeft, BsArrowBarRight } from "react-icons/bs";
 import CustomDeleteModal from '../CustomDeleteModal';
-import CustomAddModal from '../CustomAddModal';
 
 export default function CustomTable({data, rows, type}){
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
-    const [openAddModal, setOpenAddModal] = useState(false);
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(0);
     let count = data.length;
@@ -121,4 +119,3 @@ export default function CustomTable({data, rows, type}){
         </>
     )
 }
-//<CustomAddModal open={openAddModal} setOpen={setOpenAddModal()} info={info}/>

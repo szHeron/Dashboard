@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Box, Button, Modal } from "@mui/material";
+import { Alert, Box, Button, Modal, Snackbar } from "@mui/material";
 import { BsFillTrashFill } from "react-icons/bs";
 import API from "../../service/API";
 
@@ -11,6 +11,7 @@ export default function CustomDeleteModal({open, setOpen, info, type}) {
         API.delete(`/${type}/${info.id}`)
         .then(function (response) {
             setOpen(false);
+            setShowAlert(true)
         })
         .catch(e=>{
             console.log(e);
@@ -47,6 +48,11 @@ export default function CustomDeleteModal({open, setOpen, info, type}) {
                     <Button sx={{backgroundColor: "#808080"}} variant="contained" onClick={()=>setOpen(false)}>CANCELAR</Button>
                     <Button variant="contained" color="error" onClick={handleDelete}>DELETAR</Button>
                 </div>
+                <Snackbar open={showAlert} autoHideDuration={6000} onClose={()=>setShowAlert(false)}>
+                    <Alert onClose={()=>setShowAlert(false)} severity="success" sx={{ width: '100%' }}>
+                        teste
+                    </Alert>
+                </Snackbar>
             </Box>
         </Modal>
     )
