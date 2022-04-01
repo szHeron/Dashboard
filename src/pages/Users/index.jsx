@@ -41,7 +41,7 @@ export default function Users() {
           onClick={()=>setOpenAddModal(true)}
         />
       </div>
-      <CustomAddModal open={openAddModal} setOpen={setOpenAddModal} type="users"/>
+      <CustomAddModal open={openAddModal} setOpen={setOpenAddModal} type="users" info={["Nome", "Usuário", "Senha", "Email", "Estado"]}/>
     </>
   )
 }
