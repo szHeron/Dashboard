@@ -4,7 +4,7 @@ import { AiFillEdit, AiFillDelete, AiOutlineArrowRight, AiOutlineArrowLeft } fro
 import { BsArrowBarLeft, BsArrowBarRight } from "react-icons/bs";
 import CustomDeleteModal from '../CustomDeleteModal';
 
-export default function CustomTable({data, rows, type}){
+export default function CustomTable({data, setCount, countUseEffect, rows, type}){
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(0);
@@ -115,7 +115,7 @@ export default function CustomTable({data, rows, type}){
                     />
                 </Table>
             </TableContainer>
-            <CustomDeleteModal setOpen={setOpenDeleteModal} open={openDeleteModal} info={info} type={type}/>
+            <CustomDeleteModal setOpen={setOpenDeleteModal} open={openDeleteModal} count={countUseEffect} setCount={setCount} info={info} type={type}/>
         </>
     )
 }

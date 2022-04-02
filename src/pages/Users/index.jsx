@@ -1,27 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { Skeleton, SpeedDial, SpeedDialIcon } from '@mui/material';
+import { Alert, Skeleton, SpeedDial, SpeedDialIcon, Snackbar } from '@mui/material';
 import Table from '../../components/CustomTable';
 import CustomAddModal from '../../components/CustomAddModal';
 import API from '../../service/API';
-import './style.scss'
+import './style.scss';
 
 export default function Users() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [openAddModal, setOpenAddModal] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showDelAlert, setShowDelAlert] = useState(false);
+  const [showAddAlert, setShowAddAlert] = useState(false);
+  const [count, setCount] = useState(null);
 
   useEffect(()=>{
     API.get('/users')
     .then(function (response) {
-      setData(response.data);
+      const dataLength = data.length;
+      if(!dataLength || dataLength !== response.data.length){
+        setData(response.data);
+      }
+      if(count){
+        if(count < dataLength){
+          setShowDelAlert(true);
+          setCount(dataLength);
+        }else if(count > dataLength){
+          setShowAddAlert(true);
+          setCount(dataLength);
+        }
+      }else{
+        setCount(dataLength);
+      }
       setTimeout(function(){
         setLoading(false);
       },2000);
     })
     .catch(e=>{
-      console.log(e)
+      console.log(e);
     });
-  },[]);
+  },[data, count]);
 
   return (
     <>
@@ -31,7 +48,7 @@ export default function Users() {
           loading?(
             <Skeleton sx={{zIndex: 1, bgcolor: '#2e2e2e', marginTop: 3}} variant="rectangular" width={1000} height={450}/>
           ):(
-            <Table data={data} rows={['ID', 'Usuario', 'Nome', 'Senha', 'Email', 'Estado']} type="users"/>
+            <Table data={data} setCount={setCount} countUseEffect={count} rows={['ID', 'Usuario', 'Nome', 'Senha', 'Email', 'Estado']} type="users"/>
           )
         }
         <SpeedDial
@@ -41,7 +58,23 @@ export default function Users() {
           onClick={()=>setOpenAddModal(true)}
         />
       </div>
-      <CustomAddModal open={openAddModal} setOpen={setOpenAddModal} type="users" info={["Nome", "Usuário", "Senha", "Email", "Estado"]}/>
+      <CustomAddModal setCount={setCount} count={count} open={openAddModal} setOpen={setOpenAddModal} type="users" info={["Usuario", "Nome", "Senha", "Email", "Estado"]}/>
+      {
+      showDelAlert&&
+        <Snackbar open={showDelAlert} autoHideDuration={6000} onClose={()=>setShowDelAlert(false)}>
+          <Alert onClose={()=>setShowDelAlert(false)} severity="success" sx={{ width: '100%' }}>
+            Usuário excluido com sucesso!
+          </Alert>
+        </Snackbar>
+      }
+      {
+      showAddAlert&&
+        <Snackbar open={showAddAlert} autoHideDuration={6000} onClose={()=>setShowAddAlert(false)}>
+          <Alert onClose={()=>setShowAddAlert(false)} severity="success" sx={{ width: '100%' }}>
+            Usuário adicionado com sucesso!
+          </Alert>
+        </Snackbar>
+      }
     </>
   )
 }
