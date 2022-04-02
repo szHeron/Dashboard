@@ -11,7 +11,11 @@ export default function MetricCard(Card) {
   return (
     <div className="conteiner">
         <div style={{display: 'flex', justifyItems: 'center', backgroundColor: Card.Color, padding: 5, borderRadius: '50%'}}>
-          <Card.Icon style={{width: 48, height: 48, color: "#fff"}}/>
+          {Card.Name === "Total"?(
+            <Card.Icon style={{width: 48, height: 48, color: "#fff", marginLeft: 3}}/>
+          ):(
+            <Card.Icon style={{width: 48, height: 48, color: "#fff"}}/>
+          )}
         </div>
         <div className="info">
           <p>{Card.Name}</p>

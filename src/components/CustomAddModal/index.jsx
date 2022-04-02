@@ -5,6 +5,7 @@ import API from "../../service/API";
 export default function CustomAddModal({open, setOpen, setCount, count, info, type}) {
     const [showAlert, setShowAlert] = useState(false);
     const [newData, setNewData] = useState({});
+    const [erros, setErros] = useState(null);
 
     const handlePost = async () => {
         try{
@@ -15,6 +16,52 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
         }catch(e){
             console.log(e);
         }
+    }
+
+    const validation = () => {
+        let error = !erros?{}:erros;
+        for (let i = 0; i < info.length; i++) {
+            const caseValidate = info[i].toLowerCase();
+            if(!newData[caseValidate] || newData[caseValidate].length < 3){
+                error[info[i]] = "Entrada de dados incorreta!";
+            }else{
+                delete error[info[i]]
+            }
+        }
+
+        if(Object.keys(error).length === 0){
+            error = null
+        }
+
+        setErros(error);
+        
+    }
+
+    const renderErros = () =>{
+        return info.map((item)=>{
+            let aux = newData;
+            if(!erros[item]){
+                return <TextField 
+                    key={item}
+                    id={item}
+                    sx={{width: "70%"}} 
+                    label={item} 
+                    variant="outlined"
+                    onChange={(e)=>{aux[item.toLowerCase()] = e.target.value; setNewData(aux)}}
+                />
+            }else{
+                return <TextField 
+                    key={item}
+                    id={item}
+                    sx={{width: "70%"}} 
+                    label={item} 
+                    variant="outlined"
+                    error
+                    helperText={erros[item]}
+                    onChange={(e)=>{aux[item.toLowerCase()] = e.target.value; setNewData(aux)}}
+                />
+            }
+        })
     }
     
     return (
@@ -41,18 +88,26 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
                     alignItems: "center",
                     height: "100%",
                     width: "100%"
-                }} onSubmit={(e)=>{handlePost();e.preventDefault()}}>
+                }} onSubmit={(e)=>{e.preventDefault();validation();}}>
                     <h3>Adicionar usuário</h3>
-                    {info.map((item)=>{
-                        let aux = newData;
-                        return <TextField 
-                            key={item}
-                            sx={{width: "70%"}} 
-                            label={item} 
-                            variant="outlined" 
-                            onChange={(e)=>{aux[item.toLowerCase()] = e.target.value; setNewData(aux)}}
-                    />
-                    })}
+                    {
+                        !erros?(
+                            info.map((item)=>{
+                                let aux = newData;
+                                return <TextField 
+                                    key={item}
+                                    id={item}
+                                    sx={{width: "70%"}} 
+                                    label={item} 
+                                    variant="outlined"
+                                    onChange={(e)=>{aux[item.toLowerCase()] = e.target.value; setNewData(aux)}}
+                                />
+                            })
+                        )
+                        :(
+                            renderErros()
+                        ) 
+                    }
                     <div style={{display:"flex", justifyContent: "space-between", width: "45%", marginBottom: 15}}> 
                         <Button variant="contained" sx={{backgroundColor: "#808080"}} onClick={()=>setOpen(false)}> CANCELAR </Button>
                         <Button variant="contained" color="success" type="submit"> SALVAR </Button>
