@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Box, Button, Modal, TextField } from "@mui/material";
+import { Box, Button, Modal , TextField } from "@mui/material";
 import API from "../../service/API";
 
-export default function CustomAddModal({open, setOpen, setCount, count, info, type}) {
-    const [newData, setNewData] = useState({});
+export default function CustomEditModal({open, setOpen, newData, setNewData, labels, type}) {
     const [erros, setErros] = useState(null);
-
-    const handlePost = async () => {
+    
+    const handleUpdate = async () => {
         try{
+            const id = newData.id;
+            delete newData.id;
             setOpen(false);
-            setCount(count + 1);
-            await API.post(`/${type}`, newData);
+            await API.put(`/${type}/${id}`, newData);
         }catch(e){
             console.log(e);
         }
@@ -18,26 +18,25 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
 
     const validation = () => {
         let error = !erros?{}:erros;
-        for (let i = 0; i < info.length; i++) {
-            const caseValidate = info[i].toLowerCase();
+        for (let i = 0; i < labels.length; i++) {
+            const caseValidate = labels[i].toLowerCase();
             if(!newData[caseValidate] || newData[caseValidate].length < 3){
-                error[info[i]] = "Entrada de dados incorreta!";
+                error[labels[i]] = "Entrada de dados incorreta!";
             }else{
-                delete error[info[i]]
+                delete error[labels[i]]
             }
         }
 
         if(Object.keys(error).length === 0){
-            error = null
-            handlePost();
+            error = null;
+            handleUpdate();
         }
 
-        setErros(error);
-        
+        setErros(error); 
     }
 
     const renderErros = () =>{
-        return info.map((item)=>{
+        return labels.map((item)=>{
             let aux = newData;
             if(!erros[item]){
                 return <TextField 
@@ -62,7 +61,7 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
             }
         })
     }
-    
+
     return (
         <Modal
             open={open}
@@ -88,10 +87,10 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
                     height: "100%",
                     width: "100%"
                 }} onSubmit={(e)=>{e.preventDefault();validation();}}>
-                    <h3>Adicionar usuário</h3>
+                    <h3>Editar usuário</h3>
                     {
                         !erros?(
-                            info.map((item)=>{
+                            labels.map((item)=>{
                                 let aux = newData;
                                 return <TextField 
                                     key={item}

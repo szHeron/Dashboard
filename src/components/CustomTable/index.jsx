@@ -3,9 +3,11 @@ import { Box, Button, IconButton, Table, TableContainer, TablePagination, TableH
 import { AiFillEdit, AiFillDelete, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { BsArrowBarLeft, BsArrowBarRight } from "react-icons/bs";
 import CustomDeleteModal from '../CustomDeleteModal';
+import CustomEditModal from '../CustomEditModal';
 
 export default function CustomTable({data, setCount, countUseEffect, rows, type}){
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
+    const [openEditModal, setOpenEditModal] = useState(false);
     const [info, setInfo] = useState(null);
     const [page, setPage] = useState(0);
     let count = data.length;
@@ -98,8 +100,8 @@ export default function CustomTable({data, setCount, countUseEffect, rows, type}
                                     }
                                 })}
                                 <TableCell align="right" sx={{color:"#fff", width: 155}}>
-                                    <Button variant="outlined" sx={{marginRight: 1}}><AiFillEdit size={20} color="#039be5"/></Button>
-                                    <Button variant="outlined" color="error"><AiFillDelete size={20} color="#e61919" onClick={()=>{setOpenDeleteModal(true); setInfo(request);}}/></Button>
+                                    <Button variant="outlined" sx={{marginRight: 1}} onClick={()=>{setOpenEditModal(true); setInfo(request);}}><AiFillEdit size={20} color="#039be5"/></Button>
+                                    <Button variant="outlined" color="error" onClick={()=>{setOpenDeleteModal(true); setInfo(request);}}><AiFillDelete size={20} color="#e61919"/></Button>
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -115,7 +117,8 @@ export default function CustomTable({data, setCount, countUseEffect, rows, type}
                     />
                 </Table>
             </TableContainer>
-            <CustomDeleteModal setOpen={setOpenDeleteModal} open={openDeleteModal} count={countUseEffect} setCount={setCount} info={info} type={type}/>
+            {openDeleteModal&&<CustomDeleteModal setOpen={setOpenDeleteModal} open={openDeleteModal} count={countUseEffect} setCount={setCount} info={info} type={type}/>}
+            {openEditModal&&<CustomEditModal setOpen={setOpenEditModal} open={openEditModal} newData={info} setNewData={setInfo} labels={["Usuario", "Nome", "Senha", "Email", "Estado"]} type={type}/>}
         </>
     )
 }
