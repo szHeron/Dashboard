@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Box, Button, Modal, TextField } from "@mui/material";
 import API from "../../service/API";
 
-export default function CustomAddModal({open, setOpen, setCount, count, info, type}) {
+export default function CustomAddModal({open, setOpen, setCount, count, type}) {
     const [newData, setNewData] = useState({});
     const [erros, setErros] = useState(null);
+    const [labels, setLabels] = useState(type==="users"?['Usuario', 'Nome', 'Senha', 'Email', 'Estado']:['Nome', 'Valor', 'Quantidade']);
 
     const handlePost = async () => {
         try{
@@ -18,12 +19,12 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
 
     const validation = () => {
         let error = !erros?{}:erros;
-        for (let i = 0; i < info.length; i++) {
-            const caseValidate = info[i].toLowerCase();
-            if(!newData[caseValidate] || newData[caseValidate].length < 3){
-                error[info[i]] = "Entrada de dados incorreta!";
+        for (let i = 0; i < labels.length; i++) {
+            const caseValidate = labels[i].toLowerCase();
+            if(!newData[caseValidate]){
+                error[labels[i]] = "Entrada de dados incorreta!";
             }else{
-                delete error[info[i]]
+                delete error[labels[i]]
             }
         }
 
@@ -37,7 +38,7 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
     }
 
     const renderErros = () =>{
-        return info.map((item)=>{
+        return labels.map((item)=>{
             let aux = newData;
             if(!erros[item]){
                 return <TextField 
@@ -88,10 +89,10 @@ export default function CustomAddModal({open, setOpen, setCount, count, info, ty
                     height: "100%",
                     width: "100%"
                 }} onSubmit={(e)=>{e.preventDefault();validation();}}>
-                    <h3>Adicionar usuário</h3>
+                    <h3>Adicionar</h3>
                     {
                         !erros?(
-                            info.map((item)=>{
+                            labels.map((item)=>{
                                 let aux = newData;
                                 return <TextField 
                                     key={item}

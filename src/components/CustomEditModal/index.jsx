@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Box, Button, Modal , TextField } from "@mui/material";
 import API from "../../service/API";
 
-export default function CustomEditModal({open, setOpen, newData, setNewData, labels, type}) {
+export default function CustomEditModal({open, setOpen, newData, setNewData, type}) {
     const [erros, setErros] = useState(null);
-    
+    const [labels, setLabels] = useState(type==="users"?['Usuario', 'Nome', 'Senha', 'Email', 'Estado']:['Nome', 'Valor', 'Quantidade']);
+ 
     const handleUpdate = async () => {
         try{
             const id = newData.id;

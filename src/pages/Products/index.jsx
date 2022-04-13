@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Skeleton, SpeedDial, SpeedDialIcon } from '@mui/material';
+import CustomAddModal from '../../components/CustomAddModal';
 import API from '../../service/API';
 import Table from '../../components/CustomTable';
 import './style.scss'
@@ -7,6 +8,8 @@ import './style.scss'
 export default function Products() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [count, setCount] = useState(null);
 
   useEffect(()=>{
     API.get('/products')
@@ -35,7 +38,9 @@ export default function Products() {
         ariaLabel="Adicionar um novo produto"
         sx={{ position: 'absolute', bottom: 16, right: 16 }}
         icon={<SpeedDialIcon />}
+        onClick={()=>setOpenAddModal(true)}
       />
+      <CustomAddModal setCount={setCount} count={count} open={openAddModal} setOpen={setOpenAddModal} type="products"/>
     </div>
   )
 }

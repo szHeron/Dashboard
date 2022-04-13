@@ -118,7 +118,7 @@ export default function CustomTable({data, setCount, countUseEffect, rows, type}
                 </Table>
             </TableContainer>
             {openDeleteModal&&<CustomDeleteModal setOpen={setOpenDeleteModal} open={openDeleteModal} count={countUseEffect} setCount={setCount} info={info} type={type}/>}
-            {openEditModal&&<CustomEditModal setOpen={setOpenEditModal} open={openEditModal} newData={info} setNewData={setInfo} labels={["Usuario", "Nome", "Senha", "Email", "Estado"]} type={type}/>}
+            {openEditModal&&<CustomEditModal setOpen={setOpenEditModal} open={openEditModal} newData={info} setNewData={setInfo} type={type}/>}
         </>
     )
 }
