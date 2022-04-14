@@ -31,7 +31,7 @@ export default function Products() {
         loading?(
           <Skeleton sx={{zIndex: 1, bgcolor: '#2e2e2e', marginTop: 3}} variant="rectangular" width={1000} height={450}/>
         ):(
-          <Table data={data} rows={['ID', 'Nome', 'Valor', 'Quantidade']}/>
+          <Table data={data} rows={['ID', 'Nome', 'Valor', 'Quantidade']} type="products"/>
         )
       }
       <SpeedDial

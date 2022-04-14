@@ -45,7 +45,7 @@ export default function CustomDeleteModal({open, setOpen, setCount, count, info,
                 </div>
                 <div style={{display:"flex", justifyContent: "space-between", width: "40%"}}>
                     <Button sx={{backgroundColor: "#808080"}} variant="contained" onClick={()=>setOpen(false)}>CANCELAR</Button>
-                    <Button variant="contained" color="error" onClick={handleDelete}>DELETAR</Button>
+                    <Button variant="contained" color="error" onClick={handleDelete}>EXCLUIR</Button>
                 </div>
             </Box>
         </Modal>
