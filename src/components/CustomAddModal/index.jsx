@@ -4,11 +4,11 @@ import CustomInput from "../CustomInput";
 import API from "../../service/API";
 
 export default function CustomAddModal({open, setOpen, setCount, count, type}) {
-    const [newData, setNewData] = useState({});
+    const [newData, setNewData] = useState(type === 'transactions'?{tipo: true}:{});
 
     const handlePost = async () => {
+        console.log(newData)
         try{
-            console.log(newData)
             setOpen(false);
             setCount(count + 1);
             await API.post(`/${type}`, newData);

@@ -1,20 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import { Skeleton, SpeedDial, SpeedDialIcon } from '@mui/material';
+import { Alert, Skeleton, SpeedDial, SpeedDialIcon, Snackbar } from '@mui/material';
 import CustomAddModal from '../../components/CustomAddModal';
 import API from '../../service/API';
 import Table from '../../components/CustomTable';
 import './style.scss'
 
 export default function Products() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openAddModal, setOpenAddModal] = useState(false);
+  const [showDelAlert, setShowDelAlert] = useState(false);
+  const [showAddAlert, setShowAddAlert] = useState(false);
   const [count, setCount] = useState(null);
 
   useEffect(()=>{
     API.get('/products')
     .then(function (response) {
-      setData(response.data);
+      let dataLength = null;
+
+      if(data.length < 1){
+        setData(response.data);
+        dataLength = data.length;
+      }
+      if(count){
+        if(count < dataLength){
+          setShowDelAlert(true);
+          setCount(dataLength);
+          setData(response.data);
+        }else if(count > dataLength){
+          setShowAddAlert(true);
+          setCount(dataLength);
+          setData(response.data);
+        }
+      }else{
+        setCount(dataLength);
+      }
       setTimeout(function(){
         setLoading(false);
       },2000);
@@ -22,7 +42,7 @@ export default function Products() {
     .catch(e=>{
       console.log(e)
     });
-  },[]);
+  },[data, count]);
 
   return (
     <div className="container">
@@ -41,6 +61,22 @@ export default function Products() {
         onClick={()=>setOpenAddModal(true)}
       />
       <CustomAddModal setCount={setCount} count={count} open={openAddModal} setOpen={setOpenAddModal} type="products"/>
+      {
+        showDelAlert&&
+          <Snackbar open={showDelAlert} autoHideDuration={6000} onClose={()=>setShowDelAlert(false)}>
+            <Alert onClose={()=>setShowDelAlert(false)} severity="success" sx={{ width: '100%' }}>
+              Produto excluido com sucesso!
+            </Alert>
+          </Snackbar>
+      }
+      {
+        showAddAlert&&
+          <Snackbar open={showAddAlert} autoHideDuration={6000} onClose={()=>setShowAddAlert(false)}>
+            <Alert onClose={()=>setShowAddAlert(false)} severity="success" sx={{ width: '100%' }}>
+              Produto adicionado com sucesso!
+            </Alert>
+          </Snackbar>
+      }
     </div>
   )
 }

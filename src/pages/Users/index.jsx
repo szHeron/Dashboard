@@ -16,21 +16,26 @@ export default function Users() {
   useEffect(()=>{
     API.get('/users')
     .then(function (response) {
-      const dataLength = data.length;
-      if(!dataLength || dataLength !== response.data.length){
+      let dataLength = null;
+
+      if(data.length < 1){
         setData(response.data);
+        dataLength = data.length;
       }
       if(count){
         if(count < dataLength){
           setShowDelAlert(true);
           setCount(dataLength);
+          setData(response.data);
         }else if(count > dataLength){
           setShowAddAlert(true);
           setCount(dataLength);
+          setData(response.data);
         }
       }else{
         setCount(dataLength);
       }
+
       setTimeout(function(){
         setLoading(false);
       },2000);
@@ -60,20 +65,20 @@ export default function Users() {
       </div>
       <CustomAddModal setCount={setCount} count={count} open={openAddModal} setOpen={setOpenAddModal} type="users" info={["Usuario", "Nome", "Senha", "Email", "Estado"]}/>
       {
-      showDelAlert&&
-        <Snackbar open={showDelAlert} autoHideDuration={6000} onClose={()=>setShowDelAlert(false)}>
-          <Alert onClose={()=>setShowDelAlert(false)} severity="success" sx={{ width: '100%' }}>
-            Usuário excluido com sucesso!
-          </Alert>
-        </Snackbar>
+        showDelAlert&&
+          <Snackbar open={showDelAlert} autoHideDuration={6000} onClose={()=>setShowDelAlert(false)}>
+            <Alert onClose={()=>setShowDelAlert(false)} severity="success" sx={{ width: '100%' }}>
+              Usuário excluido com sucesso!
+            </Alert>
+          </Snackbar>
       }
       {
-      showAddAlert&&
-        <Snackbar open={showAddAlert} autoHideDuration={6000} onClose={()=>setShowAddAlert(false)}>
-          <Alert onClose={()=>setShowAddAlert(false)} severity="success" sx={{ width: '100%' }}>
-            Usuário adicionado com sucesso!
-          </Alert>
-        </Snackbar>
+        showAddAlert&&
+          <Snackbar open={showAddAlert} autoHideDuration={6000} onClose={()=>setShowAddAlert(false)}>
+            <Alert onClose={()=>setShowAddAlert(false)} severity="success" sx={{ width: '100%' }}>
+              Usuário adicionado com sucesso!
+            </Alert>
+          </Snackbar>
       }
     </>
   )

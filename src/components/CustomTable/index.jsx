@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, Button, IconButton, Table, TableContainer, TablePagination, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import { AiFillEdit, AiFillDelete, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import { BsArrowBarLeft, BsArrowBarRight } from "react-icons/bs";
+import { BsArrowBarLeft, BsArrowBarRight, BsArrowDownLeft, BsArrowUpRight } from "react-icons/bs";
 import CustomDeleteModal from '../CustomDeleteModal';
 import CustomEditModal from '../CustomEditModal';
 
@@ -69,10 +69,6 @@ export default function CustomTable({data, setCount, countUseEffect, rows, type}
         setPage(newPage);
     };
 
-    const RenderDate = (obj)=>{
-        return `${obj.getHours()}:${obj.getMinutes()} - ${obj.getDate()}/${obj.getMonth()+1}/${obj.getFullYear()}`
-    } 
-
     return(
         <>
             <TableContainer sx={{zIndex: 1, maxWidth: 1000, marginTop: 3}} component={Paper}>
@@ -92,11 +88,12 @@ export default function CustomTable({data, setCount, countUseEffect, rows, type}
                                     if(i === 0){
                                         return <TableCell key={i} sx={{color:"#fff"}}>{request[item]}</TableCell>  
                                     }else{
-                                        if(item === 'date'){
-                                            return <TableCell align="right" key={i} sx={{color:"#fff"}}>{()=>RenderDate(request[item])}</TableCell>  
-                                        }else{
-                                            return <TableCell align="right" key={i} sx={{color:"#fff"}}>{request[item]}</TableCell>  
-                                        }
+                                        if(item === 'tipo')
+                                            if(request[item])
+                                                return <TableCell key={i} align="right" sx={{color:"#0f0"}}><BsArrowUpRight size={24}/></TableCell> 
+                                            else
+                                                return <TableCell key={i} align="right" sx={{color:"#f00"}}><BsArrowDownLeft size={24}/></TableCell>  
+                                        return <TableCell align="right" key={i} sx={{color:"#fff"}}>{request[item]}</TableCell>  
                                     }
                                 })}
                                 <TableCell align="right" sx={{color:"#fff", width: 155}}>
