@@ -22,6 +22,8 @@
 
   <img src="https://img.shields.io/badge/SASS-%23323330.svg?style=for-the-badge&logo=SASS&logoColor=hotpink" alt="SASS"/>
 
+  <img src="https://img.shields.io/badge/heroku-%23323330.svg?style=for-the-badge&logo=heroku&logoColor=white" alt="Heroku"/>
+
 <img src="https://img.shields.io/badge/express.js-%23323330.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express"/>
 
   <img height=28 src="https://img.shields.io/badge/license-MIT-blue" alt="License">  
@@ -29,24 +31,25 @@
 </p>
 
 <br>
-
-## 🔥 Acesse em 
-  https://chat-app-szheron.vercel.app
   
 ## 🧪 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
-- [Typescript](https://www.typescriptlang.org/)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Reactjs](https://pt-br.reactjs.org/)
-- [Firebase](https://firebase.google.com/)
-- [Vercel](https://vercel.com/)
-- [Figma](https://figma.com/)
+- [Postgres](https://www.postgresql.org)
+- [Heroku](https://www.heroku.com)
+- [SASS](https://sass-lang.com)
+- [MUI](https://mui.com/)
+- [NodeJs](https://nodejs.org/)
+- [ExpressJs](https://expressjs.com/)
 
 ## 🚀 Como executar
+### Front-end
 Clone o projeto e acesse a pasta do mesmo.
 
 ```bash
-$ git clone https://github.com/szHeron/ChatApp
+$ git clone https://github.com/szHeron/Dashboard.git
 $ cd ChatApp
 ```
 
@@ -60,28 +63,37 @@ $ yarn start ou npm start
 ```
 O app estará disponível no seu browser pelo endereço http://localhost:3000.
 
+### Back-end
+Clone o projeto e acesse a pasta do mesmo.
+
+```bash
+$ git clone https://github.com/szHeron/Dashboard-backend.git
+$ cd Dashboard-backend
+```
+
+Para iniciá-lo, siga os passos abaixo:
+```bash
+# Instalar as dependências
+$ yarn ou npm install
+
+# Iniciar o projeto
+$ yarn dev ou npm run dev
+```
+O servidor estará aberto na porta 4000 ou na porta informada pelo terminal.
+
 ## 💻 Projeto
 
-Esse projeto foi desenvolvido para ser um chat em realtime, e para por em pratica os conhecimentos das tecnologias typescript e firebase.
+Esse projeto foi desenvolvido com o intuito de  projetar informações em gráficos e facilitar a visualização dos dados, como o proprio nome sugere, se trata de um dashboard, o mesmo também serviu para o apredizado do banco de dados utilizado e a integração do front-end e back-end. 
 
 ## 🌟 Features
 
-- [x] Sign in and Sign up.
+- [x] Integração front-end e back-end
 
-- [x] Anti-spam.
+- [x] Hospedagem do banco de dados
 
 - [ ] Web responsiveness.
 
-- [ ] Recover password screen.
-
-## 🔖 Layout
-
-Você pode visualizar o layout do projeto através do link abaixo:
-
-- [Layout Web](https://www.figma.com/file/qz7KYHmmxuBYCioLRiZnSc/Chat?node-id=0%3A1) 
-
-Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
-
+- [ ] Sicronização entre as tabelas do banco de dados.
 
 ## 📝 License
 
