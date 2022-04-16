@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+<div align="center">
+  <h1> 📉 Dashboard </h1>
+</div>
+<br/>
+<p align="center">
+ <img src="https://i.ibb.co/4WgrW1d/HOME.png" alt="Dashboard-Home" border="0"/>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<p align="center">
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="Typescript"/>
 
-In the project directory, you can run:
+  <img src="https://img.shields.io/badge/react-%23323330.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React"/>
 
-### `npm start`
+  <img src="https://img.shields.io/badge/postgres-%23323330.svg?style=for-the-badge&logo=postgresql&logoColor=blue" alt="Postgres"/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  <img src="https://img.shields.io/badge/MUI-%23323330.svg?style=for-the-badge&logo=mui&logoColor=white" alt="Mui"/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  <img src="https://img.shields.io/badge/Visual%20Studio%20Code-%23323330.svg?style=for-the-badge&logo=visual-studio-code&logoColor=blue" alt="VScode"/>
 
-### `npm test`
+  <img src="https://img.shields.io/badge/node.js-%23323330?style=for-the-badge&logo=node.js&logoColor=green" alt="Nodejs"/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <img src="https://img.shields.io/badge/SASS-%23323330.svg?style=for-the-badge&logo=SASS&logoColor=hotpink" alt="SASS"/>
 
-### `npm run build`
+<img src="https://img.shields.io/badge/express.js-%23323330.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="Express"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <img height=28 src="https://img.shields.io/badge/license-MIT-blue" alt="License">  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+## 🔥 Acesse em 
+  https://chat-app-szheron.vercel.app
+  
+## 🧪 Tecnologias
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+- [Typescript](https://www.typescriptlang.org/)
+- [Reactjs](https://pt-br.reactjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [Vercel](https://vercel.com/)
+- [Figma](https://figma.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Como executar
+Clone o projeto e acesse a pasta do mesmo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+$ git clone https://github.com/szHeron/ChatApp
+$ cd ChatApp
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para iniciá-lo, siga os passos abaixo:
+```bash
+# Instalar as dependências
+$ yarn ou npm install
 
-## Learn More
+# Iniciar o projeto
+$ yarn start ou npm start
+```
+O app estará disponível no seu browser pelo endereço http://localhost:3000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 💻 Projeto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Esse projeto foi desenvolvido para ser um chat em realtime, e para por em pratica os conhecimentos das tecnologias typescript e firebase.
 
-### Code Splitting
+## 🌟 Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [x] Sign in and Sign up.
 
-### Analyzing the Bundle Size
+- [x] Anti-spam.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [ ] Web responsiveness.
 
-### Making a Progressive Web App
+- [ ] Recover password screen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🔖 Layout
 
-### Advanced Configuration
+Você pode visualizar o layout do projeto através do link abaixo:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [Layout Web](https://www.figma.com/file/qz7KYHmmxuBYCioLRiZnSc/Chat?node-id=0%3A1) 
 
-### Deployment
+Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+---
