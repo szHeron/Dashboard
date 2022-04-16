@@ -3,7 +3,7 @@ import { Box, Button, Modal } from "@mui/material";
 import { BsFillTrashFill } from "react-icons/bs";
 import API from "../../service/API";
 
-export default function CustomDeleteModal({open, setOpen, setCount, count, info, type}) {
+export default function CustomDeleteModal({open, setOpen, count, setCount, info, type}) {
     info = !info?{id:null}:info
 
     const handleDelete = () => {

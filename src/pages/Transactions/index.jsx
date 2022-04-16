@@ -6,7 +6,7 @@ import Table from '../../components/CustomTable';
 import './style.scss'
 
 export default function Transactions() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openAddModal, setOpenAddModal] = useState(false);
   const [showDelAlert, setShowDelAlert] = useState(false);
@@ -51,7 +51,7 @@ export default function Transactions() {
         loading?(
           <Skeleton sx={{zIndex: 1, bgcolor: '#2e2e2e', marginTop: 3}} variant="rectangular" width={1000} height={450}/>
         ):(
-          <Table data={data} rows={['ID', 'Tipo', 'Remetente', 'Produtos', 'Valor', 'Data']} type="transactions"/>
+          <Table data={data} setCount={setCount} countUseEffect={count} rows={['ID', 'Tipo', 'Remetente', 'Produtos', 'Valor', 'Data']} type="transactions"/>
         )
       }
       <SpeedDial

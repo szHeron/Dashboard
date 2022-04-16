@@ -18,7 +18,6 @@ export default function MetricCard(Card) {
   if(Array.isArray(Card.Value))
     data = listOfObjects(Card.Value);
 
-  console.log(data)
   const total = Array.isArray(Card.Value)?Card.Value.reduce(function(acumulator, i) {
     return acumulator + i;
   }):Card.Value;

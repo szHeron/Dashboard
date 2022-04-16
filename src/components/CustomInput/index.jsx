@@ -2,6 +2,14 @@ import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField 
 
 export default function CustomInput({newData, setNewData, type}){
     if(type==="users"){
+        if(newData.usuario === undefined)
+            setNewData({
+                    usuario:'',
+                    nome:'',
+                    senha:'',
+                    email: '',
+                    estado: ''
+            });
         return(
             <>
                 <TextField 
@@ -47,6 +55,13 @@ export default function CustomInput({newData, setNewData, type}){
             </>
         )
     }else if(type==="transactions"){
+        if(newData.remetente === undefined)
+            setNewData({
+                    tipo: true,
+                    remetente:'',
+                    produtos:'',
+                    valor: 0
+            });
         return (
             <>
                 <FormControl>
@@ -83,12 +98,19 @@ export default function CustomInput({newData, setNewData, type}){
                     label={'Valor'} 
                     value={newData.valor}
                     variant='outlined'
-                    type="number"
-                    onChange={(e)=>{setNewData({...newData, valor: Number(e.target.value)})}}
+                    type='number'
+                    step='0.01'
+                    onChange={(e)=>{setNewData({...newData, valor: e.target.value})}}
                 />
             </>
         )
     }else{
+        if(newData.nome  === undefined)
+            setNewData({
+                        nome: '',
+                        valor: 0,
+                        quantidade: 0
+            });
         return (
             <>
                 <TextField 
