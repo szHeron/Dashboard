@@ -7,8 +7,8 @@ export default function NavBar() {
     {
       text: "Dashboard",
       icon: AiOutlineDashboard,
-      active: window.location.href.includes("/dashboard") === true?true:false,
-      ref: "/dashboard"
+      active: !window.location.href[window.location.href.lastIndexOf("/")+1]?true:false,
+      ref: "/"
     },
     {
       text: "Usuarios",

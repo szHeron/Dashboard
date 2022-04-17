@@ -9,7 +9,7 @@ export default function MyRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/dashboard" element={<Dashboard/>}/>
+        <Route exact path="/" element={<Dashboard/>}/>
         <Route path="/users" element={<Users/>}/>
         <Route path="/transactions" element={<Transactions/>}/>
         <Route path="/products" element={<Products/>}/>
