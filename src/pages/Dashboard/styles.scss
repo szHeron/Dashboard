@@ -3,17 +3,9 @@
 .container{
     display: flex;
     flex-direction: column;
-    height: 92vh;
+    height: 100vh;
     width: 100%;
     background: $main-bg-color;
-
-    .wrapper{
-        position: absolute;
-        background: linear-gradient(to right, #8e2de2 0%, #4a00e0 100%);
-        width: 84vw;
-        height: 40vh;
-        z-index: 0;
-    }
 
     .metrics{
         display: flex;
@@ -28,6 +20,7 @@
     .charts{
         display: flex;
         flex-direction: row;
+        width: 95%;
         justify-content: space-between;
         margin: 30px 10px 0 10px;
         z-index: 1;

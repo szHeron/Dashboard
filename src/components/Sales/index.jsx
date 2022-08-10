@@ -32,11 +32,14 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default function Sales({data, date}) {
   const formatedDate = listOfObjectsWithDate(data,date);
+  const width = window.innerWidth*0.3;
+  const height = window.innerHeight*0.55;
+
   return (
     <div className='sales-conteiner'>
       <BarChart 
-        width={330}
-        height={330}
+        width={width}
+        height={height}
         data={formatedDate}
         margin={{ top: 5, right: 20 }}
       >

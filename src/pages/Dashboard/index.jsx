@@ -6,7 +6,8 @@ import API from '../../service/API';
 import Revenue from '../../components/Revenue';
 import Sales from '../../components/Sales';
 import MetricCard from '../../components/MetricCard';
-import './style.scss';
+import Wrapper from '../../components/Wrapper';
+import './styles.scss'
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -51,7 +52,7 @@ export default function Dashboard() {
  
   return (
     <div className="container">
-      <div className="wrapper"/>
+      <Wrapper/>
       {loading?
         <>
           <div className="metrics">

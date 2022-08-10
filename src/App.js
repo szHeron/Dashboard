@@ -1,12 +1,13 @@
 import MyRoutes from './Routes';
 import SideBar from './components/SideBar';
 import HeaderBar from './components/HeaderBar';
+import './app.css';
 
 function App() {
   return (
-    <div style={{display: 'flex'}}>
+    <div className='app'>
       <SideBar/>
-      <div style={{width: '100%'}}>
+      <div>
         <HeaderBar/>
         <MyRoutes/>
       </div>
